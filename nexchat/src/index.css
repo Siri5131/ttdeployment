@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* ─── DARK THEME (default) ─────────────────────────────────── */
+:root {
+  --bg:           #09090e;
+  --bg2:          #12121c;
+  --surface:      rgba(20, 20, 30, 0.4);
+  --surface2:     rgba(30, 30, 45, 0.6);
+  --surface3:     rgba(45, 45, 65, 0.7);
+  --border:       rgba(255, 255, 255, 0.08);
+  --border-hi:    rgba(139, 92, 246, 0.4);
+  --text:         #f1f1f5;
+  --text-muted:   #9ca3af;
+  --text-dim:     rgba(255, 255, 255, 0.3);
+  --accent:       #8b5cf6;
+  --accent-dark:  #7c3aed;
+  --accent2:      #ec4899;
+  --accent3:      #0ea5e9;
+  --success:      #10b981;
+  --danger:       #ef4444;
+  --warn:         #f59e0b;
+  
+  --shadow-sm:    0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow:       0 12px 32px rgba(0, 0, 0, 0.5);
+  --shadow-lg:    0 24px 64px rgba(0, 0, 0, 0.7);
+  
+  --glow:         0 0 32px rgba(139, 92, 246, 0.25);
+  --glow-strong:  0 0 48px rgba(236, 72, 153, 0.3);
+
+  --radius-sm:    12px;
+  --radius-md:    20px;
+  --radius-lg:    28px;
+  --radius-xl:    40px;
+  
+  --font-display: 'Outfit', sans-serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+
+  --glass-blur:   blur(24px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ─── LIGHT THEME ───────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg:           #f4f4f9;
+  --bg2:          #e6e6f0;
+  --surface:      rgba(255, 255, 255, 0.5);
+  --surface2:     rgba(255, 255, 255, 0.8);
+  --surface3:     rgba(240, 240, 245, 0.9);
+  --border:       rgba(0, 0, 0, 0.08);
+  --border-hi:    rgba(139, 92, 246, 0.4);
+  --text:         #1e1e2d;
+  --text-muted:   #6b7280;
+  --text-dim:     rgba(0, 0, 0, 0.3);
+  
+  --shadow-sm:    0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow:       0 12px 32px rgba(31, 38, 135, 0.07);
+  --shadow-lg:    0 24px 64px rgba(31, 38, 135, 0.12);
+  
+  --glow:         0 0 32px rgba(139, 92, 246, 0.15);
+  --glow-strong:  0 0 48px rgba(236, 72, 153, 0.2);
+
+  --glass-border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* ─── RESET & BASE ──────────────────────────────────────────── */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* ─── SCROLLBAR ─────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: rgba(139, 92, 246, 0.3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.6); }
+
+/* ─── UTILITIES ─────────────────────────────────────────────── */
+input, button, textarea, select { font-family: var(--font-body); }
+button { 
+  cursor: pointer; 
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+button:active { transform: scale(0.97); }
+a { color: var(--accent); text-decoration: none; }
+

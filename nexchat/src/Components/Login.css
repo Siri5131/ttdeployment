@@ -1,0 +1,217 @@
+/* ─── Login Page ──────────────────────────────────────────── */
+.lp-wrap {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 2rem 2rem 3rem;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Ambient orbs */
+.lp-orb {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+}
+.lp-orb1 {
+  width: 560px; height: 560px;
+  top: -200px; left: -150px;
+  background: radial-gradient(circle, rgba(99,102,241,0.14) 0%, transparent 70%);
+}
+.lp-orb2 {
+  width: 440px; height: 440px;
+  bottom: -160px; right: -100px;
+  background: radial-gradient(circle, rgba(236,72,153,0.1) 0%, transparent 70%);
+}
+
+/* Theme button */
+.lp-theme-btn {
+  position: fixed;
+  top: 1.25rem; right: 1.5rem;
+  z-index: 20;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  box-shadow: var(--shadow);
+}
+.lp-theme-btn:hover { border-color: var(--border-hi); color: var(--accent); }
+
+.lp-card {
+  position: relative;
+  width: 90%;
+  max-width: 440px;
+  flex-shrink: 0;
+  background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2.25rem;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  animation: cardIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(32px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+/* Brand */
+.lp-brand {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 2.25rem;
+}
+.lp-logo {
+  width: 46px; height: 46px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 8px 24px rgba(99,102,241,0.35);
+  flex-shrink: 0;
+}
+.lp-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 800;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lp-heading {
+  font-family: var(--font-display);
+  font-size: 1.8rem; font-weight: 800;
+  color: var(--text); letter-spacing: -0.03em;
+  margin-bottom: 0.35rem;
+}
+.lp-sub {
+  color: var(--text-muted); font-size: 0.9rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Tabs */
+.lp-tabs {
+  display: flex; gap: 0.4rem;
+  background: var(--surface2);
+  border-radius: var(--radius-sm);
+  padding: 0.28rem;
+  margin-bottom: 1.75rem;
+}
+.lp-tab {
+  flex: 1; padding: 0.55rem;
+  border: none; border-radius: 8px;
+  background: transparent; color: var(--text-muted);
+  font-size: 0.88rem; font-weight: 600;
+  transition: all 0.2s;
+}
+.lp-tab.active {
+  background: var(--accent); color: #fff;
+  box-shadow: 0 4px 16px rgba(99,102,241,0.35);
+}
+
+/* Alerts */
+.lp-alert {
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1rem;
+  font-size: 0.84rem;
+  margin-bottom: 1rem;
+}
+.lp-alert-error   { background: rgba(239,68,68,0.1);  border: 1px solid rgba(239,68,68,0.3);  color: #f87171; }
+.lp-alert-success { background: rgba(34,197,94,0.1);  border: 1px solid rgba(34,197,94,0.3);  color: #4ade80; }
+
+/* Fields */
+.lp-field { margin-bottom: 1rem; }
+.lp-label {
+  display: block;
+  font-size: 0.73rem; font-weight: 700;
+  color: var(--text-muted); margin-bottom: 0.4rem;
+  text-transform: uppercase; letter-spacing: 0.07em;
+}
+.lp-input {
+  width: 100%; padding: 0.78rem 1rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text); font-size: 0.94rem;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.lp-input::placeholder { color: var(--text-dim); }
+.lp-input:focus {
+  border-color: var(--border-hi);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+}
+
+/* Password wrapper */
+.lp-pw-wrap { position: relative; }
+.lp-pw-input { padding-right: 2.8rem; }
+.lp-pw-toggle {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  background: none; border: none;
+  color: var(--text-muted); font-size: 0.95rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.lp-pw-toggle:hover { color: var(--text); }
+
+/* Strength meter */
+.lp-strength {
+  display: flex; align-items: center; gap: 4px;
+  margin-top: 0.5rem;
+}
+.lp-strength-bar {
+  flex: 1; height: 3px; border-radius: 2px;
+  background: var(--border);
+  transition: background 0.3s;
+}
+.lp-strength-bar.s1 { background: var(--danger); }
+.lp-strength-bar.s2 { background: var(--warn); }
+.lp-strength-bar.s3 { background: var(--accent3); }
+.lp-strength-bar.s4 { background: var(--success); }
+.lp-strength-lbl {
+  font-size: 0.72rem; color: var(--text-muted); white-space: nowrap; margin-left: 4px;
+}
+
+/* Submit */
+.lp-btn {
+  width: 100%; padding: 0.88rem;
+  border: none; border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  color: #fff; font-size: 0.96rem; font-weight: 700;
+  transition: all 0.2s;
+  box-shadow: 0 8px 24px rgba(99,102,241,0.3);
+  letter-spacing: 0.01em;
+  margin-top: 0.25rem;
+}
+.lp-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(99,102,241,0.45); }
+.lp-btn:active { transform: translateY(0); }
+.lp-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* Footer */
+.lp-foot {
+  text-align: center; margin-top: 1.25rem;
+  font-size: 0.85rem; color: var(--text-muted);
+}
+.lp-link {
+  background: none; border: none;
+  color: var(--accent); font-size: 0.85rem; font-weight: 600;
+  text-decoration: underline; padding: 0;
+}
+.lp-link:hover { color: var(--accent2); }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .lp-card { padding: 2.25rem 1.5rem; border-radius: var(--radius-lg); }
+  .lp-heading { font-size: 1.5rem; }
+}
